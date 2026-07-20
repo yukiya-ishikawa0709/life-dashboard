@@ -1,0 +1,73 @@
+.home {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.home-date-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.home-date {
+  font-weight: 600;
+  min-width: 14rem;
+  text-align: center;
+}
+
+.ticket {
+  border-radius: 12px;
+  border: 1px solid rgba(15, 15, 15, 0.1);
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.ticket-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-height: 220px;
+}
+
+.ticket-sub-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.ticket-sub {
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.ticket-sub:hover {
+  border-color: #396cd8;
+  transform: translateY(-2px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .ticket {
+    background-color: #0f0f0f98;
+    border-color: rgba(246, 246, 246, 0.12);
+  }
+}
+
+@media (max-width: 640px) {
+  .ticket-sub-list {
+    grid-template-columns: 1fr;
+  }
+}
