@@ -24,6 +24,8 @@ function Home() {
   const [mainFeatureId, setMainFeatureId] = useState<FeatureId>(FEATURES[0].id);
   const [viewingDate, setViewingDate] = useState(() => new Date());
 
+  // mainFeatureIdは常にFEATURES由来の値しか取らないため `?? FEATURES[0]` は実質到達しない防御的分岐。
+  // TODO: stateをidではなくFeatureオブジェクト自体にすれば、この分岐ごと型で不要にできる
   const mainFeature = useMemo(
     () => FEATURES.find((feature) => feature.id === mainFeatureId) ?? FEATURES[0],
     [mainFeatureId],

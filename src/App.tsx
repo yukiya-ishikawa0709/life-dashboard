@@ -8,6 +8,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/features/:featureId" element={<FeatureDetail />} />
+      {/* TODO: 画面が増えてきたら catch-all(path="*") の404的なフォールバック画面を検討する */}
     </Routes>
   );
 }
