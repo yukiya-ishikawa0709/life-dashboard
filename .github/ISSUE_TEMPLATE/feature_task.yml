@@ -1,0 +1,54 @@
+name: 機能タスク
+description: ロードマップ上の機能単位タスク(実装・設計作業)を追加する
+title: "[Feature] "
+labels:
+  - "type:feature-task"
+body:
+  - type: dropdown
+    id: stage
+    attributes:
+      label: 関連ロードマップ段階
+      description: >-
+        CLAUDE.mdの開発ロードマップ(共通基盤→スケジュール管理→家計簿→筋トレ記録→勉強記録)における
+        どの段階のタスクか選択してください。選択後、対応する stage:* ラベルを手動で付与してください。
+      options:
+        - "1. 共通基盤"
+        - "2. スケジュール管理"
+        - "3. 家計簿"
+        - "4. 筋トレ記録"
+        - "5. 勉強記録"
+    validations:
+      required: true
+  - type: textarea
+    id: overview
+    attributes:
+      label: 概要・目的
+      description: このタスクで何を実現するか、なぜ必要かを簡潔に。
+      placeholder: |
+        例: スケジュール管理機能の一覧表示画面を実装する。
+        MVP軸である本機能の最初の画面として、日付ベースの共通データ構造を確認する目的も兼ねる。
+    validations:
+      required: true
+  - type: input
+    id: requirements-ref
+    attributes:
+      label: requirements.md 参照セクション
+      description: >-
+        対応する要件定義書のセクションを記載してください(例: 6.1 スケジュール管理)。
+        該当セクションのTBD項目が未確定の場合は、実装前にヒアリング・要件確定を先に行ってください。
+      placeholder: "例: requirements.md 6.1 スケジュール管理"
+    validations:
+      required: true
+  - type: textarea
+    id: done-conditions
+    attributes:
+      label: 完了条件 / Done条件
+      description: このIssueが完了したと言える条件をチェックリスト形式で列挙してください。
+      placeholder: |
+        - [ ] 〇〇画面が表示され、××が操作できる
+        - [ ] 対応するRust側ロジックにテストがある
+        - [ ] requirements.mdの該当TBD項目が更新されている(必要な場合)
+      value: |
+        - [ ]
+    validations:
+      required: true
