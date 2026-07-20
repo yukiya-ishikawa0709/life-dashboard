@@ -38,14 +38,11 @@ mod tests {
 
     #[test]
     fn init_creates_database_file_and_applies_migrations() {
-        let dir = std::env::temp_dir().join(format!("life-dashboard-test-{}", std::process::id()));
-        std::fs::create_dir_all(&dir).unwrap();
-        let db_path = dir.join("test.db");
+        let dir = tempfile::tempdir().unwrap();
+        let db_path = dir.path().join("test.db");
 
         let _conn = init(&db_path);
 
         assert!(db_path.exists());
-
-        std::fs::remove_dir_all(&dir).ok();
     }
 }
